@@ -19,4 +19,14 @@ Route::get('/', function () {
     return view('home');
 
 });
+Route::post('/', function () {
+    return view('dashboard');
+
+});
+
+
+
+
+
+
 

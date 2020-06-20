@@ -1,7 +1,7 @@
 @extends('Layouts.app')
 
 @section('content')
-    <form action="dashboard.php" method="post">
+    <form method="POST" action="/">
         @csrf
         <div class="form-row">
             <div class="form-group row-cols-md-4"></div>
