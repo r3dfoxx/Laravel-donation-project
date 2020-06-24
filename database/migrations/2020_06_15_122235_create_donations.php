@@ -13,13 +13,13 @@ class CreateDonations extends Migration
      */
     public function up()
     {
-        Schema::create('donations', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('Donation Name');
+            $table->string('Donor Name');
             $table->string('Email')->unique();
-            $table->decimal('amount of donation', '12', '2');
+            $table->decimal('Amount of donation', '12', '2');
             $table->text('Message');
-            $table->dateTime('Date');
+            $table->timestamp('Date');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateDonations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donations');
+        Schema::dropIfExists('users');
     }
 }
