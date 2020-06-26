@@ -19,9 +19,9 @@ use App\Models\User;
 
     $factory->define(App\Models\User::class ,  function (Faker $faker) {
     return [
-        'Donor Name' => $faker->name,
+        'Name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'Amount of donation' =>$faker->randomFloat('12','2'),
+        'Amount' =>$faker->randomFloat('12','2'),
         'Message' => $faker->sentence('5'),
         'Date' =>$faker->date('Y-m-d','now')
     ];

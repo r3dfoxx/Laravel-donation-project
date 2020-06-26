@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('home');
-
-});
-Route::post('/', function () {
-    return view('dashboard');
-
-});
+Route::get('/', 'HomeController@index');
+Route::post('dashboard', 'UserController@index');
 
 
 

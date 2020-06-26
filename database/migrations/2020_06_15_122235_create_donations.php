@@ -15,11 +15,11 @@ class CreateDonations extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('Donor Name');
+            $table->string('Name');
             $table->string('Email')->unique();
-            $table->decimal('Amount of donation', '12', '2');
+            $table->decimal('Amount', '12', '2');
             $table->text('Message');
-            $table->timestamp('Date');
+            $table->date('Date');
         });
     }
 
