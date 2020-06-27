@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index');
 Route::post('dashboard', 'UserController@index');
+Route::get('dashboard', 'UserController@index');
+
+//Route::get('/dashboard', 'LaravelGoogleGraph@index');
+
 
 
 

@@ -21,8 +21,8 @@ Enter the amount of donation">
         </div>
         <div class="container">
             <label for="Message">Message</label>
-            <textarea class="form-control" id="Message" rows="4" placeholder="
-Leave your message (optional)"> </textarea>
+            <textarea class="form-control" id="Message" rows="4" placeholder="Leave your message (optional)
+"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

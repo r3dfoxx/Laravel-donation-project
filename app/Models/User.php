@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'Donor Name', 'Email', 'Amount of donation', 'Message', 'Date'
+        'Name', 'Email', 'Amount', 'Message', 'Date'
 
     ];
     public $timestamps = false;

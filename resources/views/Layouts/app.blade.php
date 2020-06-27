@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>App Name -@yield('title')</title>
+    <title>Donation@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
