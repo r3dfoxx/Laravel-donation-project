@@ -23,7 +23,7 @@ use App\Models\User;
         'email' => $faker->unique()->safeEmail,
         'Amount' =>$faker->randomFloat('12','2'),
         'Message' => $faker->sentence('5'),
-        'Date' =>$faker->date('Y-m-d','now')
+        'Date' =>$faker->date('Y-m-d', 'now'),
     ];
 });
 

@@ -22,8 +22,8 @@
                 <h5 class="card-title">TEXT</h5>
                 <p class="card-text">VALUE</p>
             </div>
-            </div>
         </div>
+    </div>
     </div>
 
 
@@ -41,7 +41,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
+            @foreach($users  as $user)
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->Name }}</td>

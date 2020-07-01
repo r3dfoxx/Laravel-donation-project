@@ -18,8 +18,8 @@ class CreateDonations extends Migration
             $table->string('Name');
             $table->string('Email')->unique();
             $table->decimal('Amount', '12', '2');
-            $table->text('Message');
-            $table->date('Date');
+            $table->text('Message')->nullable();
+            $table->date('Date')->nullable();
         });
     }
 

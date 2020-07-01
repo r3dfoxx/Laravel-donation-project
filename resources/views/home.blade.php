@@ -1,28 +1,43 @@
 @extends('Layouts.app')
 
 @section('content')
-    <form method="POST" action="/dashboard">
-        @csrf
+
+    @if($errors->any())
+
+        <div class="alert alert-danger">
+        <ul>@foreach($errors->all() as $error )
+            <li>{{ $error }}</li>
+                @endforeach
+        </ul>
+        </div>
+       @endif
+
+    <form method="POST" action="{{route( 'statistic-donation' )}}">
+
 <div class="container-fluid w-50">
     <div class="row justify-content-center">
+        @csrf
         <div class="container">
             <label for="Name">Name</label>
-            <input type="text" class="form-control" id="Name" aria-describedby="Name" placeholder="Enter your Name">
+            <input name="name" type="text" class="form-control" id="name" aria-describedby placeholder="Enter your Name">
         </div>
         <div class="container">
+            @csrf
             <label for="Email">Email</label>
-            <input type="Email" class="form-control" id="Email" placeholder="Enter your Email">
-            <small id="Email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input  name="email" type="Email" class="form-control" id="email" placeholder="Enter your Email"required>
+            <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="container">
+            @csrf
             <label for="Donation">Donation</label>
-            <input type="Donation" class="form-control" id="Donation" placeholder="
-Enter the amount of donation">
+            <input  name ="donation" type="Donation" class="form-control" id="donation" placeholder="
+Enter the amount of donation" required>
         </div>
         <div class="container">
+            @csrf
             <label for="Message">Message</label>
-            <textarea class="form-control" id="Message" rows="4" placeholder="Leave your message (optional)
-"></textarea>
+            <input name ="message" class="form-control" id="message" rows="4" placeholder="Leave your message (optional)
+">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

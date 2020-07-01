@@ -16,10 +16,9 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', 'HomeController@index');
-Route::post('dashboard', 'UserController@index');
+Route::post('dashboard', 'UserController@submit')->name('statistic-donation');
 Route::get('dashboard', 'UserController@index');
 
-//Route::get('/dashboard', 'LaravelGoogleGraph@index');
 
 
 
