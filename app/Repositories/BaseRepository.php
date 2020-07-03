@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Facades\DB;
 use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use App\Repositories\Interfaces\BaseInterface;
@@ -89,38 +90,7 @@ abstract class BaseRepository implements BaseInterface
         return true;
     }
 
-    /**
-     * Soft deleted record from the database
-     *
-     * @param int $id
-     * @return boolean
-     */
-    public function softDestroy(int $id)
-    {
-        try {
-            $this->model->destroy($id);
-            $record = $this->model->onlyTrashed()->where('id', $id)->get();
-        } catch (Throwable $th) {
-            //log here
-        }
-        return $record->isNotEmpty();
-    }
 
-    /**
-     * Show the record with the given id
-     *
-     * @param int $id
-     * @return model
-     */
-    public function findById(int $id)
-    {
-        try {
-            $model = $this->model->find($id);
-        } catch (Throwable $th) {
-            //log here
-        }
-        return $model;
-    }
 
     /**
      * Get the associated model
@@ -143,4 +113,11 @@ abstract class BaseRepository implements BaseInterface
         $this->model = $model;
         return $this;
     }
+    //public function count() :int
+   // {
+     //   $total_count = DB::table('users')->sum('Amount');
+      //  return $total_count;
+    //}
+
+
 }

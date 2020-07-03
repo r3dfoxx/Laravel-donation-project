@@ -1,7 +1,7 @@
 @extends('Layouts.app')
 
 @section('content')
-    <div class="card-deck display-flex">
+    <div class="card-deck align-content-md-center">
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-header">Top Donator</div>
             <div class="card-body">
@@ -20,7 +20,7 @@
             <div class="card-header">All time amount</div>
             <div class="card-body">
                 <h5 class="card-title">TEXT</h5>
-                <p class="card-text">VALUE</p>
+                <p class="card-text"></p>
             </div>
         </div>
     </div>

@@ -25,10 +25,10 @@ class DataRequests extends FormRequest
     {
         return [
 
-            'name' => 'required|name|not Null|max:200',
-            'email' => 'required|email|unique|max:255',
-            'amount' => 'required|amount|not Null',
-            'message' => 'required|message|max:255',
+            'name' => 'required|string|max:200',
+            'email' => 'required|string|unique:users,email|max:255',
+            'donation' => 'required|numeric',
+            'message' => 'required|string|max:255',
         ];
     }
 }

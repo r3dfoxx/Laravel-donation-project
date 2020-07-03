@@ -2,7 +2,9 @@
 
 namespace App\Repositories\Interfaces;
 
+use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
+use App\Services\BaseService;
 
 interface BaseInterface
 {
@@ -14,5 +16,5 @@ interface BaseInterface
 
     public function destroy(int $id);
 
-    public function findById(int $id);
+
 }

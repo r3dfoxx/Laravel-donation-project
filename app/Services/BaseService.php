@@ -10,7 +10,7 @@ abstract class BaseService
     /**
      * Repository
      *
-     * @var Repository
+     * @var $repo
      */
     public $repo;
 
@@ -74,9 +74,9 @@ abstract class BaseService
      *
      * @return integer
      */
-    public function count(): integer
-    {
-        return $this->repo->count();
-    }
+    //public function sum() :int
+   // {
+    //    return $this->repo->count();
+   // }
 
 }
