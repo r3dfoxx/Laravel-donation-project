@@ -8,6 +8,8 @@ use App\Services\BaseService;
 
 interface UserInterface extends BaseInterface
 {
-    public function count();
+    public function calculateSum();
+
+    public function calculateMonth();
 
 }

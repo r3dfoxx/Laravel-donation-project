@@ -13,7 +13,8 @@ abstract class BaseRepository implements BaseInterface
     /**
      * @var Model
      */
-    protected $model;
+    public $model;
+    public $total;
 
     public $sortBy = 'id';
     public $sortOrder = 'desc';
@@ -23,10 +24,11 @@ abstract class BaseRepository implements BaseInterface
      * Override to clarify typehinted model.
      * @param Model $model Repo DB ORM Model
      */
-    public function __construct(Model $model)
+   /* public function __construct(Model $model, User $user)
     {
         $this->model = $model;
-    }
+        $this->User = $user;
+    }*/
 
     /**
      * Get all instances of model
@@ -113,11 +115,8 @@ abstract class BaseRepository implements BaseInterface
         $this->model = $model;
         return $this;
     }
-    //public function count() :int
-   // {
-     //   $total_count = DB::table('users')->sum('Amount');
-      //  return $total_count;
-    //}
-
 
 }
+
+
+

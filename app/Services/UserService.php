@@ -7,22 +7,27 @@ use App\Repositories\UserRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-abstract class UserService implements UserInterface
+
+ class UserService extends BaseService
 {
     /**
      * @var UserRepository
      */
-    public $repo;
+   public $repo;
 
-    public function __construct(UserRepository $repo)
+   public function __construct(UserRepository $repo)
     {
         $this->repo = $repo;
     }
 
-    public function count() :int
+    public function calculateSum()
     {
-        return $this->repo->count();
+        return  $this->repo->calculateSum();
     }
 
+    public function calculateMonth()
+    {
+        return $this->repo->calculateMonth();
+    }
 
 }

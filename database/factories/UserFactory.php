@@ -21,9 +21,10 @@ use App\Models\User;
     return [
         'Name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'Amount' =>$faker->randomFloat('12','2'),
+        'Amount' =>$faker->randomFloat(),
         'Message' => $faker->sentence('5'),
-        'Date' =>$faker->date('Y-m-d', 'now'),
+        'Date' =>$faker->dateTimeBetween('-1 years', 'now'),
+
     ];
 });
 

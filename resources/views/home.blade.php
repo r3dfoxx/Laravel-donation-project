@@ -12,7 +12,7 @@
         </div>
        @endif
 
-    <form method="POST" action="{{route( 'statistic-donation' )}}">
+    <form method="POST" action="{{route( 'statistic-donation')}}">
 
 <div class="container-fluid w-50">
     <div class="row justify-content-center">

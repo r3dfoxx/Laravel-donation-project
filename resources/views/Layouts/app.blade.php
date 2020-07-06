@@ -15,6 +15,12 @@
 
 <div class="container">
     @yield('content')
+
 </div>
 </body>
+@section('footer')
+@show
+
+<div class="container">@yield('pagination')</div>
 </html>
+
