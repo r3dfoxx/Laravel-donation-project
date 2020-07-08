@@ -30,4 +30,17 @@ use Illuminate\Support\Collection;
         return $this->repo->calculateMonth();
     }
 
+    public function topDonor()
+    {
+        return $this->repo->topDonor();
+    }
+    public function paginate()
+    {
+        return $this->repo->paginate();
+    }
+    public function allUsers()
+    {
+        return $this->repo->allUsers();
+    }
+
 }

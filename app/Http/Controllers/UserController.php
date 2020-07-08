@@ -19,9 +19,7 @@ class UserController extends Controller
      * @var User
      */
     public $user;
-    public $total;
-    public $month;
-    public $sum;
+    public $userData;
 
 
     /**
@@ -29,18 +27,14 @@ class UserController extends Controller
      */
 
 
-    public function __construct(UserService $userS)
+    public function __construct(UserService $userService )
     {
-        $this->user = $userS;
+        $this->user = $userService;
+
 
     }
 
-    public function index()
-    {
-        $users = DB::table('users')->paginate(10);
-        return view('dashboard', ['users' => $users]);
 
-    }
 
     public function submit(DataRequests $dataRequests)
     {
@@ -58,26 +52,23 @@ class UserController extends Controller
     }
 
 
-    public function All()
+   public function All()
     {
-        $userData = new User();
-        $userData = $this->user->calculateSum();
-        foreach ($userData as $data)
-            $arrays[] = (array)$data;
-        foreach ($data as $sum)
 
-            return view('dashboard', ['sum' => $sum]);
-    }
-    public function Month()
-    {
-        $userMonth = new  User();
-        $userMonth = $this->user->calculateMonth();
-        foreach ($userMonth as $item)
-            $array[] = (array)$item;
-        foreach ($item as $month)
+        $num = $this->user->calculateSum();
+        $var =$this->user->calculateMonth();
+        $Donor = $this->user->topDonor();
+        $userPaginate = $this->user->paginate();
+        $DonorInfo = $this->user->allUsers();
+        dd($DonorInfo);
 
-            return view('dashboard', ['month' => $month] );
+
+
+        return view('dashboard', ['num' => $num , 'var' => $var , 'Donor' => $Donor, 'userPaginate'=>$userPaginate, 'DonorInfo'=> $DonorInfo]);
     }
+
+
+
 
 
 

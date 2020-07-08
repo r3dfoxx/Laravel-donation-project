@@ -14,21 +14,13 @@ abstract class BaseRepository implements BaseInterface
      * @var Model
      */
     public $model;
-    public $total;
+   // public $total;
+
 
     public $sortBy = 'id';
     public $sortOrder = 'desc';
 
-    /**
-     * Repo Constructor
-     * Override to clarify typehinted model.
-     * @param Model $model Repo DB ORM Model
-     */
-   /* public function __construct(Model $model, User $user)
-    {
-        $this->model = $model;
-        $this->User = $user;
-    }*/
+
 
     /**
      * Get all instances of model
