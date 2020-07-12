@@ -40,7 +40,12 @@ use Illuminate\Support\Collection;
     }
     public function allUsers()
     {
-        return $this->repo->allUsers();
+        $formattedData = [];
+        $items = $this->repo->allUsers();
+        foreach($items as $item){
+            $formattedData[] = [$item->Date, $item->Amount];
+        }
+        return $formattedData;
     }
 
 }

@@ -19,11 +19,11 @@ use App\Models\User;
 
     $factory->define(App\Models\User::class ,  function (Faker $faker) {
     return [
-        'Name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'Amount' =>$faker->randomFloat(),
-        'Message' => $faker->sentence('5'),
-        'Date' =>$faker->dateTimeBetween('-1 years', 'now'),
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'amount' =>$faker->randomNumber('2'),
+        'message' => $faker->sentence('5'),
+        'date' =>$faker->dateTimeBetween( '-6 month' , 'now'),
 
     ];
 });

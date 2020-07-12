@@ -6,7 +6,7 @@
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-header"><h4>Top Donator</h4></div>
             <div class="card-body">
-                <h5 class="card-title">{{ $Donor->Name }}</h5>
+                <h5 class="card-title">{{ $Donor->name }}</h5>
                 <p class="card-text"><h5>{{ $Donor->Amount }}</h5>
             </div>
         </div>
@@ -20,43 +20,55 @@
             <div class="card-header"><h4>Total Amount:</h4></div>
             <div class="card-body">
                 <p class="card-text"><h5>{{ $num }}</h5>
-        </div>
+            </div>
         </div>
     </div>
 
 
     <div class="container">
-
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
-            google.charts.load('current', {'packages':['corechart']});
+
+            google.charts.load('current', {'packages': ['corechart', 'line']});
             google.charts.setOnLoadCallback(drawChart);
 
             function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Date' , 'Amount'],
-                    [$DonorInfo[0]['Date'] , $DonorInfo[0]['Amount']],
 
+                var data = new google.visualization.DataTable();
 
+                data.addColumn('date', 'Date');
+                data.addColumn('number', "Amount");
+
+                @foreach($DonorInfo as $info)
+                data.addRows([
+                    [new Date('{{$info[0]}}'), {{$info[1]}}],
                 ]);
+                    @endforeach
+
 
                 var options = {
-                    title: 'Donation Statistic',
-                    curveType: 'function',
-                    legend: { position: 'bottom' }
-                };
+                        title: 'Donations Statistic',
+                        width: 1095,
+                        height: 300,
+                        hAxis: {
+                            format: 'y-m-d',
+                            gridlines: {count: 15}
+                        },
+                        vAxis: {
+                            gridlines: {color: 'none'},
+                            minValue: 0
+                        }
 
-                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                    };
+
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
                 chart.draw(data, options);
             }
+
         </script>
-
-        <div id="curve_chart" style="width: 100%; height: 400px">
-
-        </div>
-
     </div>
+    <div id="chart_div"></div>
 
     <div class="container">
         <table class="table table-info">
@@ -75,10 +87,10 @@
 
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td>{{ $user->Name }}</td>
-                    <td>{{ $user->Email }}</td>
-                    <td> {{ $user->Amount }}</td>
-                    <td>{{ $user->Date }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td> {{ $user->amount }}</td>
+                    <td>{{ $user->date }}</td>
                 </tr>
             @endforeach
             </tbody>

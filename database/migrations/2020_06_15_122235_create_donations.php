@@ -14,12 +14,12 @@ class CreateDonations extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('Name');
-            $table->string('Email')->unique();
-            $table->float('Amount', '12','2');
-            $table->text('Message')->nullable();
-            $table->timestamp('Date');
+            $table->id()->unique();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('amount');
+            $table->text('message')->nullable();
+            $table->timestamp('date');
         });
     }
 

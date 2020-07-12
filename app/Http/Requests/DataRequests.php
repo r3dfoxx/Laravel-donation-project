@@ -26,9 +26,9 @@ class DataRequests extends FormRequest
         return [
 
             'name' => 'required|string|max:200',
-            'email' => 'required|string|unique:users,email|max:255',
-            'donation' => 'required|numeric',
-            'message' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'donation' => 'required|numeric|min:1',
+            'message' => 'nullable|max:255',
         ];
     }
 }

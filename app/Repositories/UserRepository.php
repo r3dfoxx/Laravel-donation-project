@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\String\ByteString;
 use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Application;
@@ -10,6 +11,7 @@ use App\Repositories\Interfaces\BaseInterface;
 use Illuminate\Support\Collection;
 use App\Models\User;
 use App\Repositories\Interfaces\UserInterface;
+use Illuminate\Database\Query;
 
 class UserRepository extends BaseRepository implements UserInterface
 {
@@ -23,50 +25,55 @@ class UserRepository extends BaseRepository implements UserInterface
     public function calculateSum()
     {
         $total = DB::select(DB::raw("SELECT SUM(AMOUNT) AS \"TOTAL Sum\" FROM `users`
-            WHERE `Amount`"));
+            WHERE `amount`"));
 
         $all = $this->total = $total;
-        foreach ($all as $key => $value)
-            foreach ($value as $allData)
-
+        foreach ($all as $key => $value) {
+            foreach ($value as $allData) {
                 return $allData;
+            }
+        }
     }
 
     public function calculateMonth()
     {
         $month = DB::select(DB::raw(" SELECT SUM(amount) 
         FROM   `users`
-        WHERE  DATE BETWEEN Date_sub(Now(), interval 1 month) AND Now()"));
+        WHERE  `date` BETWEEN Date_sub(Now(),   interval 1 month) AND Now()"));
 
         $userMonth = $this->month = $month;
-        foreach ($userMonth as $key => $val)
-            foreach ($val as $Value)
-
+        foreach ($userMonth as $key => $val) {
+            foreach ($val as $Value) {
                 return $Value;
+            }
+        }
     }
 
     public function topDonor()
     {
-        $dataDonor = DB::select(DB::raw("SELECT Amount, `Name` FROM `users` WHERE Amount = (SELECT MAX(Amount) FROM users)"));
-        foreach ($dataDonor as $name => $val)
-            //foreach ($val as $value)
+        $topDonors = DB::select(DB::raw("SELECT `name` ,email , SUM(amount) AS Amount 
+FROM users
+GROUP BY email, `name`
+ORDER BY Amount DESC"));
+        foreach ($topDonors as $topIndex => $topDonorValue) //$topDonor = $this->model->select(['name' , 'email']), SUM('amount'),groupBy(['email' , 'name']),orderBy('amount'(DESC))->get();
 
 
-
-        return ($val);
+        {
+            return ($topDonorValue);
+        }
     }
 
     public function paginate()
     {
-        $users = DB::table('users')->paginate(10);
-        return ($users);
+        $user = $this->model->paginate(10);
+
+        return ($user);
     }
+
     public function allUsers()
     {
-    $users =User::all();
-     foreach ($users as $userKey =>$userValue)
-         $allData = DB::select(DB::raw("SELECT `Date`, `Amount` FROM `users` WHERE id>0 ORDER BY `Amount` DESC"));
-     //foreach ($allData as $data)
-     return ($allData);
+        $allData = $this->model->orderBy('Date')->get(['Date', 'Amount']);
+
+        return ($allData);
     }
 }

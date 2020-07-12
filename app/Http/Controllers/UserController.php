@@ -27,7 +27,7 @@ class UserController extends Controller
      */
 
 
-    public function __construct(UserService $userService )
+    public function __construct(UserService $userService)
     {
         $this->user = $userService;
 
@@ -35,14 +35,13 @@ class UserController extends Controller
     }
 
 
-
     public function submit(DataRequests $dataRequests)
     {
         $user = new User();
-        $user->Name = $dataRequests['name'];
-        $user->Email = $dataRequests['email'];
-        $user->Amount = $dataRequests['donation'];
-        $user->Message = $dataRequests['message'];
+        $user->name = $dataRequests['name'];
+        $user->email = $dataRequests['email'];
+        $user->amount = $dataRequests['donation'];
+        $user->message = $dataRequests['message'];
 
 
         $user->save();
@@ -52,24 +51,23 @@ class UserController extends Controller
     }
 
 
-   public function All()
+    public function All()
     {
 
         $num = $this->user->calculateSum();
-        $var =$this->user->calculateMonth();
+        $var = $this->user->calculateMonth();
         $Donor = $this->user->topDonor();
         $userPaginate = $this->user->paginate();
         $DonorInfo = $this->user->allUsers();
-        dd($DonorInfo);
 
-
-
-        return view('dashboard', ['num' => $num , 'var' => $var , 'Donor' => $Donor, 'userPaginate'=>$userPaginate, 'DonorInfo'=> $DonorInfo]);
+        return view('dashboard', [
+            'num' => $num,
+            'var' => $var,
+            'Donor' => $Donor,
+            'userPaginate' => $userPaginate,
+            'DonorInfo' => $DonorInfo,
+        ]);
     }
-
-
-
-
 
 
 }

@@ -5,42 +5,44 @@
     @if($errors->any())
 
         <div class="alert alert-danger">
-        <ul>@foreach($errors->all() as $error )
-            <li>{{ $error }}</li>
+            <ul>@foreach($errors->all() as $error )
+                    <li>{{ $error }}</li>
                 @endforeach
-        </ul>
+            </ul>
         </div>
-       @endif
+    @endif
 
     <form method="POST" action="{{route( 'statistic-donation')}}">
 
-<div class="container-fluid w-50">
-    <div class="row justify-content-center">
-        @csrf
-        <div class="container">
-            <label for="Name">Name</label>
-            <input name="name" type="text" class="form-control" id="name" aria-describedby placeholder="Enter your Name">
+        <div class="container-fluid w-50">
+            <div class="row justify-content-center">
+                @csrf
+                <div class="container">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name" aria-describedby
+                           placeholder="Enter your Name">
+                </div>
+                <div class="container">
+                    @csrf
+                    <label for="email">Email</label>
+                    <input name="email" type="Email" class="form-control" id="email" placeholder="Enter your Email">
+                    <small id="email" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="container">
+                    @csrf
+                    <label for="donation">Donation</label>
+                    <input name="donation" type="number" class="form-control" id="donation" placeholder="
+                    Enter the amount of donation">
+                </div>
+                <div class="container">
+                    @csrf
+                    <label for="message">Message</label>
+                    <input name="message" class="form-control" id="message" rows="4"
+                           placeholder="Leave your message (optional) ">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-        <div class="container">
-            @csrf
-            <label for="Email">Email</label>
-            <input  name="email" type="Email" class="form-control" id="email" placeholder="Enter your Email"required>
-            <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="container">
-            @csrf
-            <label for="Donation">Donation</label>
-            <input  name ="donation" type="Donation" class="form-control" id="donation" placeholder="
-Enter the amount of donation" required>
-        </div>
-        <div class="container">
-            @csrf
-            <label for="Message">Message</label>
-            <input name ="message" class="form-control" id="message" rows="4" placeholder="Leave your message (optional)
-">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</div>
     </form>
 @endsection
