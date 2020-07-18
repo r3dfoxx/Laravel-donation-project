@@ -4,7 +4,6 @@ use Faker\Generator as Faker;
 use App\Models\User;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -17,13 +16,13 @@ use App\Models\User;
 */
 
 
-    $factory->define(App\Models\User::class ,  function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
-        'amount' =>$faker->randomNumber('2'),
+        'amount' => $faker->randomNumber('2'),
         'message' => $faker->sentence('5'),
-        'date' =>$faker->dateTimeBetween( '-6 month' , 'now'),
+        'date' => $faker->dateTimeBetween('-6 month', 'now'),
 
     ];
 });

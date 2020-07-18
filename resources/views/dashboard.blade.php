@@ -6,20 +6,20 @@
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-header"><h4>Top Donator</h4></div>
             <div class="card-body">
-                <h5 class="card-title">{{ $Donor->name }}</h5>
-                <p class="card-text"><h5>{{ $Donor->Amount }}</h5>
+                <h5 class="card-title">{{ $topDonor->name }}</h5>
+                <p class="card-text"><h5>{{ $topDonor->user_amount }}</h5>
             </div>
         </div>
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-header"><h4>Last Month Amount</h4></div>
             <div class="card-body">
-                <p class="card-text"><h5>{{ $var }}</h5>
+                <p class="card-text"><h5>{{ $monthAmount }}</h5>
             </div>
         </div>
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-header"><h4>Total Amount:</h4></div>
             <div class="card-body">
-                <p class="card-text"><h5>{{ $num }}</h5>
+                <p class="card-text"><h5>{{ $totalAmount }}</h5>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
 
-            google.charts.load('current', {'packages': ['corechart', 'line']});
+            google.charts.load('current', {'packages': ['corechart']});
             google.charts.setOnLoadCallback(drawChart);
 
             function drawChart() {
@@ -38,8 +38,7 @@
 
                 data.addColumn('date', 'Date');
                 data.addColumn('number', "Amount");
-
-                @foreach($DonorInfo as $info)
+                @foreach($donorInfo as $info)
                 data.addRows([
                     [new Date('{{$info[0]}}'), {{$info[1]}}],
                 ]);
@@ -51,8 +50,8 @@
                         width: 1095,
                         height: 300,
                         hAxis: {
-                            format: 'y-m-d',
-                            gridlines: {count: 15}
+                            format: 'MMM-dd-yyyy',
+                            gridlines: {count:30},
                         },
                         vAxis: {
                             gridlines: {color: 'none'},
@@ -64,7 +63,9 @@
                 var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
                 chart.draw(data, options);
+
             }
+
 
         </script>
     </div>

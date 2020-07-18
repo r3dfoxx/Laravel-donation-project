@@ -14,12 +14,11 @@ abstract class BaseRepository implements BaseInterface
      * @var Model
      */
     public $model;
-   // public $total;
+
 
 
     public $sortBy = 'id';
     public $sortOrder = 'desc';
-
 
 
     /**
@@ -43,7 +42,7 @@ abstract class BaseRepository implements BaseInterface
     public function create(array $data)
     {
         try {
-            $model =  $this->model->create($data);
+            $model = $this->model->create($data);
         } catch (Throwable $th) {
             //log here
         }
@@ -83,7 +82,6 @@ abstract class BaseRepository implements BaseInterface
         }
         return true;
     }
-
 
 
     /**

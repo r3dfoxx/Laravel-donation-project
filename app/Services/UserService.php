@@ -8,21 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 
- class UserService extends BaseService
+class UserService extends BaseService
 {
     /**
      * @var UserRepository
      */
-   public $repo;
+    public $repo;
 
-   public function __construct(UserRepository $repo)
+    public function __construct(UserRepository $repo)
     {
         $this->repo = $repo;
     }
 
     public function calculateSum()
     {
-        return  $this->repo->calculateSum();
+        return $this->repo->calculateSum();
     }
 
     public function calculateMonth()
@@ -34,15 +34,17 @@ use Illuminate\Support\Collection;
     {
         return $this->repo->topDonor();
     }
+
     public function paginate()
     {
         return $this->repo->paginate();
     }
+
     public function allUsers()
     {
         $formattedData = [];
         $items = $this->repo->allUsers();
-        foreach($items as $item){
+        foreach ($items as $item) {
             $formattedData[] = [$item->Date, $item->Amount];
         }
         return $formattedData;

@@ -54,18 +54,19 @@ class UserController extends Controller
     public function All()
     {
 
-        $num = $this->user->calculateSum();
-        $var = $this->user->calculateMonth();
-        $Donor = $this->user->topDonor();
+        $totalAmount = $this->user->calculateSum();
+        $monthAmount = $this->user->calculateMonth();
+        $topDonor = $this->user->topDonor();
         $userPaginate = $this->user->paginate();
-        $DonorInfo = $this->user->allUsers();
+        $donorInfo = $this->user->allUsers();
+
 
         return view('dashboard', [
-            'num' => $num,
-            'var' => $var,
-            'Donor' => $Donor,
+            'totalAmount' => $totalAmount,
+            'monthAmount' => $monthAmount,
+            'topDonor' => $topDonor,
             'userPaginate' => $userPaginate,
-            'DonorInfo' => $DonorInfo,
+            'donorInfo' => $donorInfo,
         ]);
     }
 

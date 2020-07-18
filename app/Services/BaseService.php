@@ -3,7 +3,6 @@
 namespace App\Services;
 
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
@@ -58,20 +57,20 @@ abstract class BaseService
      * @param array $data
      * @return boolean
      */
-   /*public function update(string $id, array $data): bool
-    {
-        return $this->repo->update($id, $data);
-    }*/
+    /*public function update(string $id, array $data): bool
+     {
+         return $this->repo->update($id, $data);
+     }*/
     /**
      * Delete record by id
      *
      * @param integer $id
      * @return boolean
      */
-   /* public function destroy(string $id): bool
-    {
-        return $this->repo->destroy($id);
-    }*/
+    /* public function destroy(string $id): bool
+     {
+         return $this->repo->destroy($id);
+     }*/
 
     /**
      * Get entities count
