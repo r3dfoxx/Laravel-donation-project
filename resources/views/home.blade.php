@@ -32,7 +32,7 @@
                 <div class="container">
                     @csrf
                     <label for="donation">Donation</label>
-                    <input name="donation" type="number" class="form-control" id="donation" placeholder="
+                    <input name="donation" type="number" step="any" class="form-control" id="donation" placeholder="
                     Enter the amount of donation">
                 </div>
                 <div class="container">

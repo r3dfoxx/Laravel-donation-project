@@ -11,11 +11,6 @@ class User extends Model
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $casts = [
         'Date' => 'date:Y-m-d',
     ];
@@ -29,18 +24,10 @@ class User extends Model
     ];
     public $timestamps = false;
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     public function getDateAttribute($value)
     {
         return date('Y-m-d', strtotime($value));
-
     }
-
-
 }
 
 

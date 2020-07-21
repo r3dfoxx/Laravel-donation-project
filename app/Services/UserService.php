@@ -2,11 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\Interfaces\UserInterface;
 use App\Repositories\UserRepository;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
-
 
 class UserService extends BaseService
 {
@@ -40,10 +36,10 @@ class UserService extends BaseService
         return $this->repo->paginate();
     }
 
-    public function allUsers()
+    public function filterData()
     {
         $formattedData = [];
-        $items = $this->repo->allUsers();
+        $items = $this->repo->filterData();
         foreach ($items as $item) {
             $formattedData[] = [$item->Date, $item->Amount];
         }

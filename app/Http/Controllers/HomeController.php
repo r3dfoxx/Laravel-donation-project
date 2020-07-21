@@ -2,33 +2,27 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\DataRequests;
 use App\Models\User;
-use App\Services\UserService;
 
 class HomeController extends Controller
 {
-    public $user;
-    public $total;
-    public $month;
-
-
-    /**
-     * @var UserService;
-     */
-
-
-    public function __construct(UserService $userS)
-    {
-        $this->user = $userS;
-
-    }
-
-
     public function index()
     {
         return view('home');
     }
 
+    public function submit(DataRequests $dataRequests)
+    {
+        $user = new User();
+        $user->name = $dataRequests['name'];
+        $user->email = $dataRequests['email'];
+        $user->amount = $dataRequests['donation'];
+        $user->message = $dataRequests['message'];
+
+        $user->save();
+
+        return redirect('dashboard');
+    }
 
 }

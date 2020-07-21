@@ -10,8 +10,11 @@ interface UserInterface extends BaseInterface
 {
 
     public function calculateMonth();
-    public function  topDonor();
+
+    public function topDonor();
+
     public function paginate();
-    public function allUsers();
+
+    public function filterData();
 
 }

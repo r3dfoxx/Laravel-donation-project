@@ -17,7 +17,7 @@ class CreateDonations extends Migration
             $table->id()->unique();
             $table->string('name');
             $table->string('email');
-            $table->integer('amount');
+            $table->float('amount');
             $table->text('message')->nullable();
             $table->timestamp('date');
         });

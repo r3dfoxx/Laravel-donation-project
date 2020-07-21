@@ -24,10 +24,9 @@ class DataRequests extends FormRequest
     public function rules()
     {
         return [
-
             'name' => 'required|string|max:200',
             'email' => 'required|string|max:255',
-            'donation' => 'required|numeric|min:1',
+            'donation' => 'required|numeric|min:0.01',
             'message' => 'nullable|max:255',
         ];
     }

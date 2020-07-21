@@ -17,6 +17,4 @@ interface BaseInterface
     public function destroy(int $id);
 
 
-
-
 }

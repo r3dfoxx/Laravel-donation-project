@@ -51,7 +51,7 @@
                         height: 300,
                         hAxis: {
                             format: 'MMM-dd-yyyy',
-                            gridlines: {count:30},
+                            gridlines: {count: 30},
                         },
                         vAxis: {
                             gridlines: {color: 'none'},

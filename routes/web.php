@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', 'HomeController@index');
-Route::post('dashboard', 'UserController@submit')->name('statistic-donation');
+Route::post('dashboard', 'HomeController@submit')->name('statistic-donation');
 Route::get('dashboard', 'UserController@All');
 
 

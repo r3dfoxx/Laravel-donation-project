@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\TryCatch;
 use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use App\Repositories\Interfaces\BaseInterface;
@@ -14,12 +15,8 @@ abstract class BaseRepository implements BaseInterface
      * @var Model
      */
     public $model;
-
-
-
     public $sortBy = 'id';
     public $sortOrder = 'desc';
-
 
     /**
      * Get all instances of model
@@ -43,14 +40,14 @@ abstract class BaseRepository implements BaseInterface
     {
         try {
             $model = $this->model->create($data);
-        } catch (Throwable $th) {
-            //log here
+        } catch (Throwable $cr) {
+            report($cr);
         }
         return $model;
     }
 
     /**
-     * Update record in the database and get data back
+     * Update record in the database and return status
      *
      * @param int $id
      * @param array $data
@@ -59,12 +56,11 @@ abstract class BaseRepository implements BaseInterface
     public function update(int $id, array $data): bool
     {
         try {
-            $query = $this->model->where('id', $id)->first();
-            $result = $query->update($data);
-        } catch (Throwable $th) {
-            //log here
+           $update = $this->model->where('id', $id)->update($data);
+        } catch (Throwable $up) {
+            report($up);
         }
-        return $result;
+        return $update;
     }
 
     /**
@@ -77,12 +73,11 @@ abstract class BaseRepository implements BaseInterface
     {
         try {
             $this->model->destroy($id);
-        } catch (Throwable $th) {
-            //log here
+        }catch (Throwable $de) {
+            report($de);
         }
         return true;
     }
-
 
     /**
      * Get the associated model
@@ -100,10 +95,16 @@ abstract class BaseRepository implements BaseInterface
      * @param $model
      * @return $this
      */
+
     public function setModel(Model $model)
     {
         $this->model = $model;
         return $this;
+    }
+
+    public function paginate()
+    {
+        return $this->model->paginate(10);
     }
 
 }

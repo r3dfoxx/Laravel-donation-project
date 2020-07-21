@@ -2,10 +2,8 @@
 
 namespace App\Services;
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-
 
 abstract class BaseService
 {
@@ -15,8 +13,6 @@ abstract class BaseService
      * @var $repo
      */
     public $repo;
-    public $model;
-    public $total;
 
     /**
      * Get all data
@@ -28,12 +24,6 @@ abstract class BaseService
         return $this->repo->all();
     }
 
-    /**
-     * Create new record
-     *
-     * @param array $input
-     * @return model
-     */
     public function create(array $data): Model
     {
         return $this->repo->create($data);
@@ -57,26 +47,20 @@ abstract class BaseService
      * @param array $data
      * @return boolean
      */
-    /*public function update(string $id, array $data): bool
-     {
-         return $this->repo->update($id, $data);
-     }*/
+    public function update(string $id, array $data): bool
+    {
+        return $this->repo->update($id, $data);
+    }
+
     /**
-     * Delete record by id
+     * Delete data
      *
      * @param integer $id
      * @return boolean
      */
-    /* public function destroy(string $id): bool
-     {
-         return $this->repo->destroy($id);
-     }*/
-
-    /**
-     * Get entities count
-     *
-     * @return integer
-     */
-
+    public function destroy(string $id): bool
+    {
+        return $this->repo->destroy($id);
+    }
 
 }

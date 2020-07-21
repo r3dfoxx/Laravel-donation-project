@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-{
-    Blade::directive('money', function ($money) {
-        return "<?php echo number_format($money, 2); ?>";
-    });
-}
+    {
+        Blade::directive('money', function ($money) {
+            return "<?php echo number_format($money, 2); ?>";
+        });
+    }
 }
