@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\UserCollection;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,10 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'HomeController@index');
 Route::post('dashboard', 'HomeController@submit')->name('statistic-donation');
 Route::get('dashboard', 'UserController@All');
+
+Route::get('/users', function () {
+    return new UserCollection(User::all());
+});
 
 
 
