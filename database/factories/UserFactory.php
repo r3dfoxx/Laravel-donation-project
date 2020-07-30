@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 use App\Models\User;
+use Carbon\Carbon;
 
 
 /*
@@ -21,7 +22,8 @@ use App\Models\User;
         'email' => $faker->safeEmail,
         'amount' => $faker->randomFloat('4', '0', '10'),
         'message' => $faker->sentence('5'),
-        'date' => $faker->dateTimeBetween('-6 month', 'now'),
+        'created_at' => $faker->unixTime(),
        ];
 });
+
 

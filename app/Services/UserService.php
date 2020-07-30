@@ -41,7 +41,7 @@ class UserService extends BaseService
         $formattedData = [];
         $items = $this->repo->filterData();
         foreach ($items as $item) {
-            $formattedData[] = [$item->Date, $item->Amount];
+            $formattedData[] = [$item->created_at, $item->Amount];
         }
         return $formattedData;
     }

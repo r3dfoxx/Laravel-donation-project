@@ -79,7 +79,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Amount of Donation</th>
-                <th scope="col">Date</th>
+                <th scope="col">Created_at</th>
             </tr>
             </thead>
             <tbody>

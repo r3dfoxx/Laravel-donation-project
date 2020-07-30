@@ -19,7 +19,7 @@ class CreateDonations extends Migration
             $table->string('email');
             $table->float('amount');
             $table->text('message')->nullable();
-            $table->timestamp('date');
+            $table->timestamps();
         });
     }
 

@@ -22,8 +22,8 @@ class UserRepository extends BaseRepository implements UserInterface
 
     public function calculateMonth()
     {
-        return $this->model->whereYear('date', Carbon::now()->year)
-            ->whereMonth('date', Carbon::now()->month)->sum('amount');
+        return $this->model->whereYear('created_at', Carbon::now()->year)
+            ->whereMonth('created_at', Carbon::now()->month)->sum('amount');
     }
 
     public function topDonor()
@@ -36,6 +36,6 @@ class UserRepository extends BaseRepository implements UserInterface
 
     public function filterData()
     {
-        return $this->model->orderBy('Date')->get(['Date', 'Amount']);
+        return $this->model->orderBy('created_at')->get(['created_at', 'Amount']);
     }
 }

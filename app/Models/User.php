@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Request;
+use Carbon;
 
 class User extends Model
 {
@@ -20,14 +21,19 @@ class User extends Model
         'Email',
         'Amount',
         'Message',
-        'date',
+        'created_at'
     ];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function getDateAttribute($value)
     {
         return date('Y-m-d', strtotime($value));
     }
+
+   // public function getCreatedAtAttribute($value)
+//{
+ //   return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value->toDateTimeString())->format('d/m/y H:i a');
+//}
 }
 
 
