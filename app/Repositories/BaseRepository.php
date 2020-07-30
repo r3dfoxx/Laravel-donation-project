@@ -8,7 +8,8 @@ use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use App\Repositories\Interfaces\BaseInterface;
 use Illuminate\Support\Collection;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 abstract class BaseRepository implements BaseInterface
 {
     /**
@@ -56,7 +57,7 @@ abstract class BaseRepository implements BaseInterface
     public function update(int $id, array $data): bool
     {
         try {
-           $update = $this->model->where('id', $id)->update($data);
+        $update = $this->model->where('id', $id)->update($data);
         } catch (Throwable $up) {
             report($up);
         }
@@ -101,12 +102,10 @@ abstract class BaseRepository implements BaseInterface
         $this->model = $model;
         return $this;
     }
-
     public function paginate()
     {
-        return $this->model->paginate(10);
+    return $this->model->paginate(10);
     }
-
 }
 
 

@@ -29,6 +29,7 @@ class UserController extends Controller
         $topDonor = $this->user->topDonor();
         $userPaginate = $this->user->paginate();
         $donorInfo = $this->user->filterData();
+        //dd($topDonor);
 
         return view('dashboard', [
             'totalAmount' => $totalAmount,

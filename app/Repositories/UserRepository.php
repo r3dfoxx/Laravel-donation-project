@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Repositories\Interfaces\UserInterface;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 
 class UserRepository extends BaseRepository implements UserInterface
 {

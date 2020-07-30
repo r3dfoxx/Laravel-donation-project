@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\UserRepository;
+use Illuminate\Support\Collection;
 
 class UserService extends BaseService
 {
@@ -15,7 +16,6 @@ class UserService extends BaseService
     {
         $this->repo = $repo;
     }
-
     public function calculateSum()
     {
         return $this->repo->calculateSum();
