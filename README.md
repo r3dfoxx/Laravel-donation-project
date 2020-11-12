@@ -1,5 +1,4 @@
-<a href="https://user-content.gitlab-static.net/be4169c092b35b099f62186d45999645b6b6b9b9/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6c61726176656c2f6172742f6d61737465722f6c6f676f2d6c6f636b75702f352532305356472f32253230434d594b2f3125323046756c6c253230436f6c6f722f6c61726176656c2d6c6f676f6c6f636b75702d636d796b2d7265642e737667"
-
+<img src="https://user-content.gitlab-static.net/be4169c092b35b099f62186d45999645b6b6b9b9/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6c61726176656c2f6172742f6d61737465722f6c6f676f2d6c6f636b75702f352532305356472f32253230434d594b2f3125323046756c6c253230436f6c6f722f6c61726176656c2d6c6f676f6c6f636b75702d636d796b2d7265642e737667" width="400" data-canonical-src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" class="js-lazy-loaded qa-js-lazy-loaded" loading="lazy">
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
